@@ -67,6 +67,7 @@ ENTRY
     title
     type
     url
+    urldate
     volume
     year
   }
@@ -417,7 +418,12 @@ FUNCTION {format.url}
   url
   duplicate$ empty$
     { pop$ "" }
-    { "\urlprefix\url{" swap$ * "}" * }
+    { "\urlprefix\url{" swap$ * "}" *
+      urldate duplicate$ empty$
+        { pop$ }
+        { "~\urldateprefix" swap$ * "\urldatesuffix" * * }
+      if$
+    }
   if$
 }
 
@@ -1398,6 +1404,10 @@ FUNCTION {begin.bib}
   "  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi"
   write$ newline$
   "\providecommand{\eprint}[2][]{\url{#2}}"
+  write$ newline$
+  "\providecommand{\urldateprefix}{[Online; Viitattu }"
+  write$ newline$
+  "\providecommand{\urldatesuffix}{]}"
   write$ newline$
 }
 EXECUTE {begin.bib}
