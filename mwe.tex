@@ -1,5 +1,6 @@
 \documentclass{article}
 
+\usepackage[finnish]{babel}
 \usepackage{url}
 \usepackage{filecontents}
 
@@ -11,11 +12,18 @@
     url = {http://www.ctex.org/documents/shredder/src/texbook.pdf},
     urldate = {2017-04-17}
   }
+  @misc{jikuja17,
+    author = {Kujanp{\"a}{\"a}, Janne},
+    title = {unsrt-fi git-repository},
+    year = {2017},
+    url = {https://github.com/jikuja/bib-fi},
+    urldate = {2017-04-17}
+  }
 \end{filecontents}
 
 \begin{document}
 
-This works, yeah! \cite{Knu86}
+This works, yeah! \cite{Knu86} Homepage\cite{jikuja17}.
 
 \bibliographystyle{unsrt-fi}
 \bibliography{\jobname}
