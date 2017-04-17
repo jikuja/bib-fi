@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\usepackage{url}
+\usepackage{filecontents}
+
+\begin{filecontents}{\jobname.bib}
+  @book{Knu86,
+    author = {Knuth, Donald E.},
+    year = {1986},
+    title = {The \TeX book},
+    url = {http://www.ctex.org/documents/shredder/src/texbook.pdf},
+    urldate = {2017-04-17}
+  }
+\end{filecontents}
+
+\begin{document}
+
+This works, yeah! \cite{Knu86}
+
+\bibliographystyle{unsrt-fi}
+\bibliography{\jobname}
+\end{document}
