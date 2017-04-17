@@ -1,0 +1,42 @@
+\input docstrip
+
+\preamble
+----------------------------------------
+*** Unsorted finnish ***
+
+\endpreamble
+
+\postamble
+End of customized bst file
+\endpostamble
+
+\keepsilent
+
+\askforoverwritefalse
+\def\MBopts{
+  \from{merlin.mbs}{head,\MBopta}
+  \from{finnish.mbs}{\MBopta}
+  \from{merlin.mbs}{tail,\MBopta}
+}
+
+\def\MBopta{%
+  exlang,%: External language file
+  seq-no,%: Citation order (unsorted, like unsrt.bst)
+  vonx,%: Sort without von part (de la Maire after Mahone)
+  ed-au,%: Full, surname last (John Frederick Smith)
+  atit-u,%: Title style (just as in bib entry)
+  num-xser,%: Allows number without series and suppresses word "number"
+  isbn,%: Include ISBN for books, booklets, etc.
+  issn,%: Include ISSN for periodicals
+  doi,%: Include DOI as "doi: number"
+  finnish,%: Finnish language
+  pp,%: `Sivu' abbreviated as s. or ss.
+  ed,%: `Toimittaja' abbreviated as toim.
+  ord,%: Numerical editions as 1., 2., etc
+  and-xcom,%: No comma before `and' as `Tom, Dick and Harry'
+  eprint,%: Include eprint and archive fields for electronic publications
+  url,url-blk,%: Include URL as regular item block
+  nfss,%: Use LaTeX commands which may not work with Plain TeX
+,{ }}
+\generate{\file{unsrt-fi.bst}{\MBopts}}
+\endbatchfile
